@@ -21,10 +21,11 @@ jobs:
       env:
         DOCKER_LOGIN: oauth
         DOCKER_PASSWORD: ${{ secrets.YA_REGISTRY_TOKEN }}
+        REGISTRY: crp31on8mcbc3o9sr88o
       run: docker login cr.yandex --username $DOCKER_LOGIN --password $DOCKER_PASSWORD
 
     - name: Build
-      run: docker build -t cr.yandex/crp31on8mcbc3o9sr88o/python-docker:1 --tag python-docker:${{ github.event.inputs.image_tag }} --tag python-docker:latest .
+      run: docker build -t cr.yandex/$REGISTRY/python-docker:${{ github.event.inputs.image_tag }} -t cr.yandex/$REGISTRY/python-docker:latest .
 
     - name: Push
-      run: docker push cr.yandex/crp31on8mcbc3o9sr88o/python-docker:1
+      run: docker push cr.yandex/$REGISTRY/python-docker
