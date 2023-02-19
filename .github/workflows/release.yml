@@ -27,4 +27,4 @@ jobs:
       run: docker build -t cr.yandex/crp31on8mcbc3o9sr88o/python-docker:1 --tag python-docker:${{ github.event.inputs.image_tag }} --tag python-docker:latest .
 
     - name: Push
-      run: docker push python-docker
+      run: docker push -t cr.yandex/crp31on8mcbc3o9sr88o/python-docker:1
