@@ -6,6 +6,9 @@ on:
       image_tag:
         type: string
         required: true
+        
+env:
+  REGISTRY: ${{ vars.REGISTRY }}
 
 jobs:
 
@@ -21,7 +24,6 @@ jobs:
       env:
         DOCKER_LOGIN: oauth
         DOCKER_PASSWORD: ${{ secrets.YA_REGISTRY_TOKEN }}
-        REGISTRY: crp31on8mcbc3o9sr88o
       run: docker login cr.yandex --username $DOCKER_LOGIN --password $DOCKER_PASSWORD
 
     - name: Build
