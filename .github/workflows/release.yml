@@ -24,7 +24,7 @@ jobs:
       run: docker login cr.yandex --username $DOCKER_LOGIN --password $DOCKER_PASSWORD
 
     - name: Build
-      run: docker build --tag python-docker:${{ github.event.inputs.image_tag }} python-docker:latest --tag
+      run: docker build --tag python-docker:${{ github.event.inputs.image_tag }} --tag python-docker:latest
 
     - name: Push
       run: docker push python-docker
